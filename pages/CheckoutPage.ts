@@ -1,11 +1,11 @@
-import { Page, expect, Locator } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
+import { RandomDataUtil } from '../utils/randomDataGenerator';
 
 export class CheckoutPage {
     private readonly page: Page;
     
     // Locators
-    private readonly radioGuest: Locator;
-    private readonly btnContinue: Locator;
+    private readonly btnAddrContinue: Locator;
     private readonly txtFirstName: Locator;
     private readonly txtLastName: Locator;
     private readonly txtAddress1: Locator;
@@ -14,62 +14,38 @@ export class CheckoutPage {
     private readonly txtPin: Locator;
     private readonly drpCountry: Locator;
     private readonly drpState: Locator;
-    private readonly btnContinueBillingAddress: Locator;
-    private readonly btnContinueDeliveryAddress: Locator;
-    private readonly txtDeliveryMethod: Locator;
-    private readonly btnContinueShippingAddress: Locator;
-    private readonly chkboxTerms: Locator;
+    private readonly addCommentMsg: Locator;
+    private readonly acceptTandC: Locator;
     private readonly btnContinuePaymentMethod: Locator;
-    private readonly lblTotalPrice: Locator;
-    private readonly btnConfOrder: Locator;
-    private readonly lblOrderConMsg: Locator;
+    private readonly warningPayment : Locator;
 
     constructor(page: Page) {
         this.page = page;
-        
-        // Initialize locators with CSS selectors
-        this.radioGuest = page.locator('input[value="guest"]');
-        this.btnContinue = page.locator('#button-account');
-        this.txtFirstName = page.locator('#input-payment-firstname');
-        this.txtLastName = page.locator('#input-payment-lastname');
-        this.txtAddress1 = page.locator('#input-payment-address-1');
-        this.txtAddress2 = page.locator('#input-payment-address-2');
-        this.txtCity = page.locator('#input-payment-city');
-        this.txtPin = page.locator('#input-payment-postcode');
-        this.drpCountry = page.locator('#input-payment-country');
-        this.drpState = page.locator('#input-payment-zone');
-        this.btnContinueBillingAddress = page.locator('#button-payment-address');
-        this.btnContinueDeliveryAddress = page.locator('#button-shipping-address');
-        this.txtDeliveryMethod = page.locator('textarea[name="comment"]');
-        this.btnContinueShippingAddress = page.locator('#button-shipping-method');
-        this.chkboxTerms = page.locator('input[name="agree"]');
+        // Initialize locators 
+        this.btnAddrContinue = page.locator('#button-payment-address');
+        this.txtFirstName = page.getByRole('textbox', { name: 'First Name' });
+        this.txtLastName = page.getByRole('textbox', { name: 'Last Name' });
+        this.txtAddress1 = page.getByRole('textbox', { name: 'Address 1' });
+        this.txtAddress2 = page.getByRole('textbox', { name: 'Address 2' });
+        this.txtCity = page.getByRole('textbox', { name: 'City' });
+        this.txtPin = page.getByRole('textbox', { name: 'Post Code' });
+        this.drpCountry = page.getByRole('combobox', { name: 'Country' });
+        this.drpState = page.getByRole('combobox', { name: 'Region / State' });
+        this.addCommentMsg= page.locator('[name="comment"]');
+        this.acceptTandC = page.locator('[name="agree"]');
         this.btnContinuePaymentMethod = page.locator('#button-payment-method');
-        this.lblTotalPrice = page.locator('strong:has-text("Total:") + td');
-        this.btnConfOrder = page.locator('#button-confirm');
-        this.lblOrderConMsg = page.locator('#content h1');
+        this.warningPayment = page.locator('div.alert.alert-danger.alert-dismissible')
     }
 
     // Check if checkout page exists
-    async isCheckoutPageExists() {
+    /*async isCheckoutPageExists() {
         try {
             await expect(this.page).toHaveTitle("Checkout");
             return true;
         } catch (error) {
             return false;
         }
-    }
-    
-    // Choose checkout option
-    async chooseCheckoutOption(checkOutOption: string){
-        if (checkOutOption === "Guest Checkout") {
-            await this.radioGuest.click();
-        }
-    }
-
-    // Click on continue button
-    async clickOnContinue(){
-        await this.btnContinue.click();
-    }
+    }*/
 
     // Form field methods
     async setFirstName(firstName: string){
@@ -104,54 +80,28 @@ export class CheckoutPage {
         await this.drpState.selectOption({ label: state });
     }
 
-    // Continue button methods
-    async clickOnContinueAfterBillingAddress() {
-        await this.btnContinueBillingAddress.click();
+    // Click on continue button
+    async clickOnContinue(){
+        await this.btnAddrContinue.click();
     }
 
-    async clickOnContinueAfterDeliveryAddress() {
-        await this.btnContinueDeliveryAddress.click();
+     // Add comment in Payment Details
+    async addComment(){
+        //if (checkOutOption === "Guest Checkout") {
+            await this.addCommentMsg.fill(RandomDataUtil.getRandomAlphanumeric(50));
+        //}
     }
 
-    // Delivery method
-    async setDeliveryMethodComment(deliveryMsg: string) {
-        await this.txtDeliveryMethod.fill(deliveryMsg);
+    // Accept Terms and Conditions of Payment Method
+    async acceptTermsAndConditions(){
+        await this.acceptTandC.check();
     }
 
-    async clickOnContinueAfterDeliveryMethod() {
-        await this.btnContinueShippingAddress.click();
-    }
-
-    // Terms and conditions
-    async selectTermsAndConditions() {
-        await this.chkboxTerms.check();
-    }
-
-    async clickOnContinueAfterPaymentMethod() {
+        async clickOnPaymentContinue(){
         await this.btnContinuePaymentMethod.click();
     }
 
-    // Order confirmation
-    async getTotalPriceBeforeConfOrder() {
-        return await this.lblTotalPrice.textContent();
-    }
-
-    async clickOnConfirmOrder() {
-        await this.btnConfOrder.click();
-    }
-
-    async isOrderPlaced() {
-        try {
-            // Handle alert if present
-            if (this.page.on('dialog', dialog => dialog.accept())) {
-                await this.page.waitForEvent('dialog');
-            }
-            
-            await expect(this.lblOrderConMsg).toHaveText("Your order has been placed!");
-            return true;
-        } catch (error) {
-            console.log(`Error verifying order placement: ${error}`);
-            return false;
-        }
+    async warningPaymentMethod(): Promise<any>{
+        return (await this.warningPayment.textContent());
     }
 }
