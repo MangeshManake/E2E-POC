@@ -70,7 +70,7 @@ test('Execute end-to-end test flow @end-to-end', async ({ page }) => {
 
     // Step 7: Add Payment Method 
     await addPaymentDetails(page);
-    console.log("✅ New Billing address Added");
+    console.log("✅ New Payment Method Added");
 });
 
 

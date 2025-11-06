@@ -29,7 +29,7 @@ test('Login with Valid Credentials @master @sanity @regression', async ({ }) => 
     // Perform Login
     await loginPage.login(config.email, config.password);
 
-    //const isLoggedIn = await myAccountPage.isMyAccountPageExists();
-    //expect(isLoggedIn).toBeTruthy();
+    const isLoggedIn = await myAccountPage.isMyAccountPageExists();
+    expect(isLoggedIn).toBeTruthy();
 
 });
