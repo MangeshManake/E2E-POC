@@ -26,13 +26,24 @@ import { ProductPage } from '../pages/ProductPage';
 import { ShoppingCartPage } from '../pages/ShoppingCartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 
+let config: TestConfig;
+let homePage: HomePage;
+let searchResultsPage: SearchResultsPage;
+let productPage: ProductPage;
+let checkoutPage: CheckoutPage;
+
+test.beforeEach(async ({page})=>{
+    // Initialize Test Config and Page Objects
+    config = new TestConfig();
+    homePage = new HomePage(page);
+    searchResultsPage = new SearchResultsPage(page);
+    productPage = new ProductPage(page);
+    checkoutPage = new CheckoutPage(page);
+    
+    await page.goto(config.appUrl);
+});
 // This is the main test block that runs the entire flow
 test('Execute end-to-end test flow @end-to-end', async ({ page }) => {
-    const config = new TestConfig();
-
-    // Navigate to the application's home page
-    await page.goto(config.appUrl);
-
     // Step 1: Register a new account and capture the generated email
     let registeredEmail: string = await performRegistration(page);
     console.log("✅ Registration is completed!");
@@ -53,8 +64,13 @@ test('Execute end-to-end test flow @end-to-end', async ({ page }) => {
     await verifyShoppingCart(page);
     console.log("✅ Shopping cart verification completed!");
 
-    // Step 6: Perform checkout (skipped for demo site)
-    // await performCheckout(page);
+    // Step 6: Add Billing Address 
+    await addBillingDetails(page);
+    console.log("✅ New Billing address Added");
+
+    // Step 7: Add Payment Method 
+    await addPaymentDetails(page);
+    console.log("✅ New Payment Method Added");
 });
 
 
@@ -104,7 +120,6 @@ async function performLogout(page: Page) {
 
 // Function to log in using the registered email
 async function performLogin(page: Page, email: string) {
-    const config = new TestConfig();
     await page.goto(config.appUrl);  // Reload home page
 
     const homePage = new HomePage(page);
@@ -141,7 +156,7 @@ async function addProductToCart(page: Page) {
     await productPage?.setQuantity(productQuantity);
     await productPage?.addToCart();  // Add product to shopping cart
 
-    await page.waitForTimeout(3000); // Wait to simulate user delay
+    await page.waitForTimeout(3000); 
 
     // Confirm product was added
     expect(await productPage?.isConfirmationMessageVisible()).toBe(true);
@@ -157,16 +172,35 @@ async function verifyShoppingCart(page: Page) {
     const shoppingCartPage: ShoppingCartPage = await productPage.clickViewCart();
 
     console.log("🛒 Navigated to shopping cart!");
-
-    const config = new TestConfig();
     
     // Validate that total price is correct (based on config)
     expect(await shoppingCartPage.getTotalPrice()).toBe(config.totalPrice);
+
+    // Click on Checkout 
+    await shoppingCartPage.clickOnCheckout();
 }
 
 
-// Function to perform checkout (disabled for demo site)
-async function performCheckout(page: Page) {
-    // Checkout feature is not implemented since it's a demo site.
-    // Place your checkout flow logic here if backend is available.
+// Function to perform checkout 
+async function addBillingDetails(page: Page) {
+    //Add Billing details
+    await checkoutPage.setFirstName(RandomDataUtil.getRandomFirstName());
+    await checkoutPage.setLastName(RandomDataUtil.getRandomLastName());
+    await checkoutPage.setAddress1(RandomDataUtil.getRandomAddress());
+    await checkoutPage.setAddress2(RandomDataUtil.getRandomAddress());
+    await checkoutPage.setCity(RandomDataUtil.getRandomCity());
+    await checkoutPage.setPin(RandomDataUtil.getRandomPin());
+    await checkoutPage.setCountry(config.country);
+    await checkoutPage.setState(config.State);
+    await checkoutPage.clickOnContinue();
+}
+
+async function addPaymentDetails(page:Page){
+    await checkoutPage.addComment();
+    await checkoutPage.acceptTermsAndConditions();
+    await checkoutPage.clickOnPaymentContinue();
+
+    const warningMessage = await checkoutPage.warningPaymentMethod();
+    const cleanMessage = warningMessage.replace(/[×\s]+$/, '');
+    expect(cleanMessage).toBe("Warning: Payment method required!");
 }

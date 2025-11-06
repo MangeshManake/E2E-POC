@@ -22,10 +22,7 @@ export class ProductPage {
         this.lnkViewCart = page.locator('strong:has-text("View Cart")');
     }
 
-    /**
-     * Sets the product quantity
-     * @param qty - Quantity to set
-     */
+    //Sets the product quantity
     async setQuantity(qty: string): Promise<void> {
         await this.txtQuantity.fill('');
         await this.txtQuantity.fill(qty);
@@ -57,19 +54,14 @@ export class ProductPage {
         await this.btnItems.click();
     }
 
-    /**
-     * Clicks on View Cart link
-     * @returns Promise<ShoppingCartPage> - Returns ShoppingCartPage instance
-     */
+    //Clicks on View Cart link
     async clickViewCart(): Promise<ShoppingCartPage> {
         await this.lnkViewCart.click();
         return new ShoppingCartPage(this.page);
     }
 
-    /**
-     * Complete workflow to add product to cart
-     * @param quantity - Quantity of product to add
-     */
+    //Complete workflow to add product to cart
+
     async addProductToCart(quantity: string): Promise<void> {
         await this.setQuantity(quantity);
         await this.addToCart();
