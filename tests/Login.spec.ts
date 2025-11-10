@@ -20,13 +20,13 @@ test.beforeEach(async ({ page }) => {
     myAccountPage = new MyAccountPage(page);
 });
 
-test('Login with Valid Credentials @master @sanity @regression', async ({ }) => {
+test('Test Login with Valid Credentials @master @sanity @regression', async ({ }) => {
     // Navigate to Login Page
     config = new TestConfig();
     await homePage.clickMyAccount();
     await homePage.clickLogin();
 
-    // Perform Login
+    // Perform Login //
     await loginPage.login(config.email, config.password);
 
     const isLoggedIn = await myAccountPage.isMyAccountPageExists();

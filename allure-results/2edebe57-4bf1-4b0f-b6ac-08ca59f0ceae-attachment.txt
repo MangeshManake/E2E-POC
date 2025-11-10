@@ -1,3 +1,0 @@
-✅ Registration is completed!
-✅ Logout is completed!
-✅ Login is completed!
