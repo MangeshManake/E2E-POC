@@ -10,7 +10,7 @@ workers: 2,
 reporter: [
 ['html'],
 ['allure-playwright'],
-//['dot'],
+['dot'],
 ['list']
 ],
 use: {

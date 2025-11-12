@@ -14,7 +14,7 @@ export class LoginPage {
         this.txtEmailAddress = page.getByLabel('E-Mail Address');
         this.txtPassword = page.getByLabel('Password');
         this.btnLogin = page.locator('input[type="submit"]');
-        this.loginErrorMessage = page.getByText('Warning: No match for E-Mail Address and/or Password.', { exact: true });
+        this.loginErrorMessage = page.locator(".alert.alert-danger.alert-dismissible")
     }
 
     // Method to Enter Email Address
@@ -40,12 +40,17 @@ export class LoginPage {
     }
 
     // Method to check Login error message is visible
-    async getLoginErrorMessage(): Promise< null | string | boolean> {
+    /*async getLoginErrorMessage(): Promise< null | string | boolean> {
         try {
             return (await this.loginErrorMessage.textContent());
         } catch (error) {
             console.log("Error in locating Login Error Message: ", error);
             return false;
         }
+    }*/
+   async getLoginErrorMessage(): Promise<string>{
+        const errorMessage = await this.loginErrorMessage.textContent() || '';
+        const warningMatch = errorMessage.match(/Warning/);
+        return warningMatch ? warningMatch[0]: '';
     }
 }
