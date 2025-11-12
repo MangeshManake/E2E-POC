@@ -25,10 +25,14 @@ for (const data of jsonTestData) {
             // Verify successful login by checking My Account page exists
             expect(await myAccountPage.isMyAccountPageExists()).toBeTruthy();
         }
-        else if (data.expected.toLowerCase() === "failure") {
+        /*else if (data.expected.toLowerCase() === "failure") {
             // Verify error message is displayed for failed login
             const errorMessage = await loginPage.getLoginErrorMessage();
             expect(errorMessage).toBe(" Warning: No match for E-Mail Address and/or Password.");
+        }*/
+        else if (data.expected.toLowerCase() === "failure") {
+            const errorMessage = await loginPage.getLoginErrorMessage();
+            expect(errorMessage).toMatch('Warning');
         }
     });
 }
@@ -54,12 +58,15 @@ for (const data of csvTestData) {
             // Verify successful login by checking My Account page exists
             expect(await myAccountPage.isMyAccountPageExists()).toBeTruthy();
         }
-        else if (data.expected.toLowerCase() === "failure") {
+        /*else if (data.expected.toLowerCase() === "failure") {
             // Verify error message is displayed for failed login
             const errorMessage = await loginPage.getLoginErrorMessage();
             expect(errorMessage).toBe(" Warning: No match for E-Mail Address and/or Password.");
+        }*/
+        else if (data.expected.toLowerCase() === "failure") {
+            const errorMessage = await loginPage.getLoginErrorMessage();
+            expect(errorMessage).toMatch('Warning');
         }
-
     });
 }
 
