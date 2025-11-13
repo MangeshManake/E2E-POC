@@ -1,0 +1,5 @@
+Test: Password Boundary - Valid 20 Chars
+  Should Fail: false
+  URL: https://naveenautomationlabs.com/opencart/index.php?route=account/register
+  Errors Found: 1
+  Has Confirmation: false

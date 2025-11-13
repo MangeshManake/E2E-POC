@@ -1,0 +1,6 @@
+Test: Email - No Domain Extension
+  Should Fail: true
+  URL: https://naveenautomationlabs.com/opencart/index.php?route=account/register
+  Errors Found: 0
+  Has Confirmation: false
+  Note: No validation error shown for this invalid input (site may allow it)

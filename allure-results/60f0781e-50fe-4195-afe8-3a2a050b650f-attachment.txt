@@ -1,0 +1,5 @@
+Test: Empty Email
+  URL: https://naveenautomationlabs.com/opencart/index.php?route=account/success
+  Errors: 0 - 
+  Confirmation: Your Account Has Been Created!
+  Note: No validation error displayed for 'Empty Email'. Site may accept this input.

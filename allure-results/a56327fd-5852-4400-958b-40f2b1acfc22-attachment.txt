@@ -1,0 +1,3 @@
+Test: Telephone - Too Short (1 char)
+  Should Fail: true
+  Errors Found: 0

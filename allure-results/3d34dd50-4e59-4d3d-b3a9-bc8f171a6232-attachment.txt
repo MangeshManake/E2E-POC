@@ -1,0 +1,5 @@
+Test: Empty Telephone
+  URL: https://naveenautomationlabs.com/opencart/index.php?route=account/register
+  Errors: 0 - 
+  Confirmation: 
+  Note: No validation error displayed for 'Empty Telephone'. Site may accept this input.

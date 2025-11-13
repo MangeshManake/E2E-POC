@@ -1,0 +1,4 @@
+Test: Policy Not Accepted
+  URL: https://naveenautomationlabs.com/opencart/index.php?route=account/register
+  Errors: 1 - Warning: You must agree to the Privacy Policy!
+  Confirmation: 

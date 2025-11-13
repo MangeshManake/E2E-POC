@@ -27,6 +27,53 @@ export class RegistrationPage {
         this.chkPolicy = page.getByRole('checkbox');
         this.btnContinue = page.getByRole('button', { name: 'Continue' });
         this.msgConfirmation = page.locator('h1:has-text("Your Account Has Been Created!")')
+    }
+
+    // Get all validation error messages displayed on the form
+    async getErrorMessages(): Promise<string[]> {
+        // OpenCart displays alerts in div.alert-danger or similar containers
+        const errorLocators = this.page.locator('div.alert, div.alert-danger, .alert-danger');
+        const count = await errorLocators.count();
+        const errors: string[] = [];
+        
+        for (let i = 0; i < count; i++) {
+            const text = await errorLocators.nth(i).textContent();
+            if (text) {
+                errors.push(text.trim());
+            }
+        }
+        return errors;
+    }
+
+    // Get error message for a specific field (checks for inline validation messages)
+    async getFieldErrorMessage(fieldName: string): Promise<string | null> {
+        // Try to find error near the field (many forms put errors in small/span after the field)
+        const fieldLocator = this.page.getByRole('textbox', { name: fieldName });
+        
+        try {
+            // Look for error text near the field or in a common error container
+            const errorText = await this.page
+                .locator(`xpath=//input[@placeholder="${fieldName}" or @aria-label="${fieldName}"]/following-sibling::*[contains(@class, "error") or contains(@class, "invalid") or contains(text(), "must")]`)
+                .first()
+                .textContent({ timeout: 2000 });
+            return errorText ? errorText.trim() : null;
+        } catch {
+            return null;
+        }
+    }
+
+    // Get error message from browser validation (HTML5 validation pop-up)
+    async getBrowserValidationMessage(): Promise<string | null> {
+        try {
+            // Attempt to get validation message from the first invalid input
+            const message = await this.page.evaluate(() => {
+                const invalidInput = document.querySelector('input:invalid');
+                return invalidInput ? (invalidInput as any).validationMessage : null;
+            });
+            return message;
+        } catch {
+            return null;
+        }
     }   
 
     // set the First Name in Registration form
@@ -69,9 +116,16 @@ export class RegistrationPage {
         await this.btnContinue.click();
     }
 
-    // get Confirmation Message
+    // get Confirmation Message - with timeout to prevent hanging
     async getConfirmationMessage(): Promise<string> {
-        return await this.msgConfirmation.textContent() ?? '';
+        try {
+            // Use a short timeout to check if element exists, don't wait for it
+            const text = await this.msgConfirmation.textContent({ timeout: 3000 });
+            return text ?? '';
+        } catch (error) {
+            // Element not found or timeout, return empty string
+            return '';
+        }
     }
 
 }

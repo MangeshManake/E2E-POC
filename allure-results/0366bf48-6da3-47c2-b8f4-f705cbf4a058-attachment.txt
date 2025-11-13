@@ -1,0 +1,5 @@
+Test: First Name Boundary - Valid 32 Chars
+  Should Fail: false
+  Errors Found: 1
+  Messages: Warning: E-Mail Address is already registered!
+  Warning: Unexpected errors for passing test: Warning: E-Mail Address is already registered!
