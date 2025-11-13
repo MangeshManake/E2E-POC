@@ -1,3 +1,6 @@
 testName,email,password,expected
 Valid Login,mangesh.m1@gmail.com,12345678,Success
-Invalid Login,abcde@gmail.com,wrongpasswor,Failure
+Invalid Login - Wrong Password,abcde@gmail.com,wrongpasswor,Failure
+Invalid Login - Wrong Email_Id,abcdefgh@gmail.com,wrongpassword,Failure
+Invalid Login - Empty Password,abcde@gmail.com,,Failure
+Invalid Login - Empty Email_Id,,wrongpassword,Failure

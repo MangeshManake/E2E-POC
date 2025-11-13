@@ -1,0 +1,4 @@
+Test: Privacy Policy Not Accepted
+  Should Fail: true
+  Errors Found: 1
+  Messages: Warning: You must agree to the Privacy Policy!

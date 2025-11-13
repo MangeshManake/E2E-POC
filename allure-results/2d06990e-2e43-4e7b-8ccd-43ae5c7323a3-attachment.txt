@@ -1,0 +1,3 @@
+Test: Email - Multiple @ Symbols
+  Should Fail: true
+  Errors Found: 0

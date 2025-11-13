@@ -1,0 +1,3 @@
+Test: Empty Email
+  Should Fail: true
+  Errors Found: 0

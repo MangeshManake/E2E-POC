@@ -6,9 +6,28 @@
         "expected": "Success"
     },
     {
-        "testName": "Invalid Login",
+        "testName": "Invalid Login - Wrong Password",
         "email": "abcde@gmail.com",
         "password": "wrongpasswor",
         "expected": "Failure"
+    },
+    {
+        "testName": "Invalid Login - Wrong Email_Id",
+        "email": "abcdefgh@gmail.com",
+        "password": "wrongpassword",
+        "expected": "Failure"
+    },
+    {
+        "testName": "Invalid Login - Empty Password",
+        "email": "abcde@gmail.com",
+        "password": "",
+        "expected": "Failure"
+    },
+    {
+        "testName": "Invalid Login - Empty Email_Id",
+        "email": "",
+        "password": "wrongpassword",
+        "expected": "Failure"
     }
+
 ]

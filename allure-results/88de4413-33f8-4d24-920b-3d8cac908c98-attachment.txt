@@ -1,0 +1,5 @@
+Test: Telephone Too Short
+  URL: https://naveenautomationlabs.com/opencart/index.php?route=account/register
+  Errors: 0 - 
+  Confirmation: 
+  Note: No validation error displayed for 'Telephone Too Short'. Site may accept this input.

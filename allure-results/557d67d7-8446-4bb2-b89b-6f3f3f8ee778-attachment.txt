@@ -1,0 +1,5 @@
+Test: Empty Password
+  URL: https://naveenautomationlabs.com/opencart/index.php?route=account/register
+  Errors: 0 - 
+  Confirmation: 
+  Note: No validation error displayed for 'Empty Password'. Site may accept this input.
