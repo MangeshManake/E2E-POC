@@ -1,0 +1,2 @@
+Case: Empty Post Code -> Errors: none; Alert: none
+⚠ Empty Post Code: no validation shown (site accepted)

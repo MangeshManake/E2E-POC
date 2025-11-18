@@ -1,3 +1,0 @@
-Test: Empty Last Name
-  Should Fail: true
-  Errors Found: 0

@@ -1,0 +1,2 @@
+Case: Empty First Name -> Errors: none; Alert: none
+⚠ Empty First Name: no validation shown (site accepted)

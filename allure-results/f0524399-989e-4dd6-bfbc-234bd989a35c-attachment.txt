@@ -1,3 +1,0 @@
-Test: First Name Boundary - Valid Single Char
-  Should Fail: false
-  Errors Found: 0

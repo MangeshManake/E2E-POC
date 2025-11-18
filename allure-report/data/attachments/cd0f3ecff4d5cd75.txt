@@ -1,0 +1,9 @@
+Test Before Each
+✅ Registration is completed!
+✅ Logout is completed!
+✅ Login is completed!
+✅ Product added to cart!
+🛒 Navigated to shopping cart!
+✅ Shopping cart verification completed!
+✅ New Billing address Added
+✅ New Payment Method Added

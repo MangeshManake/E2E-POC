@@ -8,10 +8,9 @@ retries:1,
 //workers: process.env.CI ? 1 : undefined,
 workers: 2,
 reporter: [
-['html'],
-['allure-playwright'],
-['dot'],
-['list']
+	['html'],
+	['allure-playwright'],
+	['list']
 ],
 use: {
 trace: 'on-first-retry',

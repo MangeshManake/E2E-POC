@@ -1,5 +1,0 @@
-Test: Password Mismatch - Confirm Password Different
-  Should Fail: true
-  URL: https://naveenautomationlabs.com/opencart/index.php?route=account/register
-  Errors Found: 1
-  Has Confirmation: false

@@ -1,17 +1,4 @@
-/**
- * Test Case: End-to-End Test on Demo E-commerce Application
- *
- * Purpose:
- * This test simulates a complete user flow on an e-commerce site.
- * 
- * Steps:
- * 1) Register a new account
- * 2) Logout after registration
- * 3) Login with the same account
- * 4) Search for a product and add it to the shopping cart
- * 5) Verify cart contents
- * 6) Attempt checkout (disabled since feature isn't available on demo site)
- */
+//Test Case: End-to-End Test on Demo E-commerce Application
 
 import { test, expect, Page } from '@playwright/test';
 import { RegistrationPage } from '../pages/RegistrationPage';
@@ -32,9 +19,11 @@ let searchResultsPage: SearchResultsPage;
 let productPage: ProductPage;
 let checkoutPage: CheckoutPage;
 
+
 test.beforeEach(async ({page})=>{
     // Initialize Test Config and Page Objects
     config = new TestConfig();
+    console.log("Test Before Each");
     homePage = new HomePage(page);
     searchResultsPage = new SearchResultsPage(page);
     productPage = new ProductPage(page);
@@ -72,7 +61,9 @@ test('Execute end-to-end test flow @end-to-end', async ({ page }) => {
     await addPaymentDetails(page);
     console.log("✅ New Payment Method Added");
 });
-
+test('Execute end-to-end test2 flow @end-to-end', async ({ page }) => {
+    console.log("Test2");
+});
 
 // Function to register a new user account
 async function performRegistration(page: Page): Promise<string> {

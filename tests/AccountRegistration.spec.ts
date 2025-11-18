@@ -1,22 +1,16 @@
 // Tags: @master @sanity @regression
 
 import {test, expect} from "@playwright/test"
-import { HomePage } from "../pages/HomePage";
-import { RegistrationPage } from "../pages/RegistrationPage";
+import {PageFactory } from "../pages/PageFactory";
 import {RandomDataUtil} from "../utils/randomDataGenerator";
-import {TestConfig} from "../test.config"
+import {TestConfig} from "../test.config";
 
-let homePage: HomePage;
-let registrationPage: RegistrationPage;
 let config: TestConfig;
 
 test.beforeEach(async ({page})=>{
     // Navigate to Application URL
-    config = new TestConfig();
+    const config = PageFactory.getConfig();
     await page.goto(config.appUrl);
-
-    homePage = new HomePage(page);
-    registrationPage = new RegistrationPage(page);
 });
 
 // Cleanup after each test. It is optional
@@ -24,27 +18,25 @@ test.afterEach(async ({page})=>{
     await page.close();
 });
 
-test('Account Registration Test @master @sanity @regression', async ()=>{
+test('Account Registration Test @master @sanity @regression', async ({page})=>{
    
     // Click on My Account  and Register Link
-    await homePage.clickMyAccount();
-    await homePage.clickRegister();
+    //await PageFactory.getHomePage(page).clickMyAccount();
+    await PageFactory.getHomePage(page).clickMyAccount();
 
     // Fill Registration Form with random data
-    await registrationPage.setFirstName(RandomDataUtil.getRandomFirstName());
-    await registrationPage.setLastName(RandomDataUtil.getRandomLastName());
-    await registrationPage.setEmail(RandomDataUtil.getRandomEmail());
-    await registrationPage.setTelephone(RandomDataUtil.getPhoneNumber());
+    await PageFactory.getRegistrationPage(page).setFirstName(RandomDataUtil.getRandomFirstName());
+    await PageFactory.getRegistrationPage(page).setLastName(RandomDataUtil.getRandomLastName());
+    await PageFactory.getRegistrationPage(page).setEmail(RandomDataUtil.getRandomEmail());
+    await PageFactory.getRegistrationPage(page).setTelephone(RandomDataUtil.getPhoneNumber());
+
     const password = RandomDataUtil.getRandomPassword();
-    await registrationPage.setPassword(password);
-    await registrationPage.setConfirmPassword(password);
+    await PageFactory.getRegistrationPage(page).setPassword(password);
+    await PageFactory.getRegistrationPage(page).setConfirmPassword(password);
 
     // Accept Privacy Policy and Submit the form
-    await registrationPage.acceptPrivacyPolicy();
-    await registrationPage.clickContinue();
+    await PageFactory.getRegistrationPage(page).acceptPrivacyPolicy();
+    await PageFactory.getRegistrationPage(page).clickContinue();
 
-    // Verify Registration is successful        
-    //const confirmationMsg = await registrationPage.getConfirmationMessage();
-    //expect(confirmationMsg).toContain("Your Account Has Been Created!");
-    expect(await registrationPage.getConfirmationMessage()).toContain("Your Account Has Been Created!");
+    expect(await PageFactory.getRegistrationPage(page).getConfirmationMessage()).toContain("Your Account Has Been Created!");
 });

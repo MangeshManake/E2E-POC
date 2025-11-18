@@ -1,3 +1,0 @@
-Test: Password - Too Short (3 chars)
-  Should Fail: true
-  Errors Found: 0

@@ -29,5 +29,4 @@
         "password": "wrongpassword",
         "expected": "Failure"
     }
-
 ]

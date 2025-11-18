@@ -59,9 +59,5 @@ export class RandomDataUtil {
 
     static getRandomNumeric(length: number): string {
         return faker.string.numeric(length);
-    }
-
-    static getRandomUUID(): string {
-        return faker.string.uuid();
-    }   
+    } 
 }

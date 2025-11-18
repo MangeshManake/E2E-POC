@@ -1,0 +1,5 @@
+Test: Email Missing @
+  URL: https://naveenautomationlabs.com/opencart/index.php?route=account/register
+  Errors: 0 - 
+  Confirmation: 
+  Note: No validation error displayed for 'Email Missing @'. Site may accept this input.
