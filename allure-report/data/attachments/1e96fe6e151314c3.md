@@ -1,0 +1,233 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - button "$ Currency " [ref=e7] [cursor=pointer]:
+        - strong [ref=e8]: $
+        - text: Currency
+        - generic [ref=e9]: 
+      - list [ref=e11]:
+        - listitem [ref=e12]:
+          - link "" [ref=e13] [cursor=pointer]:
+            - /url: https://naveenautomationlabs.com/opencart/index.php?route=information/contact
+            - generic [ref=e14]: 
+          - text: "123456789"
+        - listitem [ref=e15]:
+          - link " My Account" [ref=e16] [cursor=pointer]:
+            - /url: https://naveenautomationlabs.com/opencart/index.php?route=account/account
+            - generic [ref=e17]: 
+            - text: My Account
+        - listitem [ref=e19]:
+          - link " Wish List (0)" [ref=e20] [cursor=pointer]:
+            - /url: https://naveenautomationlabs.com/opencart/index.php?route=account/wishlist
+            - generic [ref=e21]: 
+            - text: Wish List (0)
+        - listitem [ref=e22]:
+          - link " Shopping Cart" [ref=e23] [cursor=pointer]:
+            - /url: https://naveenautomationlabs.com/opencart/index.php?route=checkout/cart
+            - generic [ref=e24]: 
+            - text: Shopping Cart
+        - listitem [ref=e25]:
+          - link " Checkout" [ref=e26] [cursor=pointer]:
+            - /url: https://naveenautomationlabs.com/opencart/index.php?route=checkout/checkout
+            - generic [ref=e27]: 
+            - text: Checkout
+  - banner [ref=e28]:
+    - generic [ref=e30]:
+      - link "naveenopencart" [ref=e33] [cursor=pointer]:
+        - /url: https://naveenautomationlabs.com/opencart/index.php?route=common/home
+        - img "naveenopencart" [ref=e34]
+      - generic [ref=e36]:
+        - textbox "Search" [ref=e37]
+        - button "" [ref=e39] [cursor=pointer]:
+          - generic [ref=e40]: 
+      - generic [ref=e42]:
+        - button " 37 item(s) - $18,500.00" [ref=e43] [cursor=pointer]:
+          - generic [ref=e44]: 
+          - text: 37 item(s) - $18,500.00
+        - text:    
+  - navigation [ref=e46]:
+    - generic: 
+    - list [ref=e48]:
+      - listitem [ref=e49]:
+        - link "Desktops" [ref=e50] [cursor=pointer]:
+          - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/category&path=20
+      - listitem [ref=e51]:
+        - link "Laptops & Notebooks" [ref=e52] [cursor=pointer]:
+          - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/category&path=18
+      - listitem [ref=e53]:
+        - link "Components" [ref=e54] [cursor=pointer]:
+          - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/category&path=25
+      - listitem [ref=e55]:
+        - link "Tablets" [ref=e56] [cursor=pointer]:
+          - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/category&path=57
+      - listitem [ref=e57]:
+        - link "Software" [ref=e58] [cursor=pointer]:
+          - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/category&path=17
+      - listitem [ref=e59]:
+        - link "Phones & PDAs" [ref=e60] [cursor=pointer]:
+          - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/category&path=24
+      - listitem [ref=e61]:
+        - link "Cameras" [ref=e62] [cursor=pointer]:
+          - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/category&path=33
+      - listitem [ref=e63]:
+        - link "MP3 Players" [ref=e64] [cursor=pointer]:
+          - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/category&path=34
+  - generic [ref=e65]:
+    - list [ref=e66]:
+      - listitem [ref=e67]:
+        - link "" [ref=e68] [cursor=pointer]:
+          - /url: https://naveenautomationlabs.com/opencart/index.php?route=common/home
+          - generic [ref=e69]: 
+      - listitem [ref=e70]:
+        - link "Shopping Cart" [ref=e71] [cursor=pointer]:
+          - /url: https://naveenautomationlabs.com/opencart/index.php?route=checkout/cart
+    - generic [ref=e73]:
+      - heading "Shopping Cart (0.00kg)" [level=1] [ref=e74]
+      - table [ref=e77]:
+        - rowgroup [ref=e78]:
+          - row "Image Product Name Model Quantity Unit Price Total" [ref=e79]:
+            - cell "Image" [ref=e80]
+            - cell "Product Name" [ref=e81]
+            - cell "Model" [ref=e82]
+            - cell "Quantity" [ref=e83]
+            - cell "Unit Price" [ref=e84]
+            - cell "Total" [ref=e85]
+        - rowgroup [ref=e86]:
+          - 'row "MacBook MacBook Reward Points: 15000 Product 16 25   $500.00 $12,500.00" [ref=e87]':
+            - cell "MacBook" [ref=e88]:
+              - link "MacBook" [ref=e89] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/product&product_id=43
+                - img "MacBook" [ref=e90]
+            - 'cell "MacBook Reward Points: 15000" [ref=e91]':
+              - link "MacBook" [ref=e92] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/product&product_id=43
+              - text: "Reward Points: 15000"
+            - cell "Product 16" [ref=e93]
+            - cell "25  " [ref=e94]:
+              - generic [ref=e95]:
+                - textbox [ref=e96]: "25"
+                - generic [ref=e97]:
+                  - button "" [ref=e98] [cursor=pointer]:
+                    - generic [ref=e99]: 
+                  - button "" [ref=e100] [cursor=pointer]:
+                    - generic [ref=e101]: 
+            - cell "$500.00" [ref=e102]
+            - cell "$12,500.00" [ref=e103]
+          - 'row "MacBook MacBook Reward Points: 7200 Product 16 12   $500.00 $6,000.00" [ref=e104]':
+            - cell "MacBook" [ref=e105]:
+              - link "MacBook" [ref=e106] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/product&product_id=43
+                - img "MacBook" [ref=e107]
+            - 'cell "MacBook Reward Points: 7200" [ref=e108]':
+              - link "MacBook" [ref=e109] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/product&product_id=43
+              - text: "Reward Points: 7200"
+            - cell "Product 16" [ref=e110]
+            - cell "12  " [ref=e111]:
+              - generic [ref=e112]:
+                - textbox [ref=e113]: "12"
+                - generic [ref=e114]:
+                  - button "" [ref=e115] [cursor=pointer]:
+                    - generic [ref=e116]: 
+                  - button "" [ref=e117] [cursor=pointer]:
+                    - generic [ref=e118]: 
+            - cell "$500.00" [ref=e119]
+            - cell "$6,000.00" [ref=e120]
+      - heading "What would you like to do next?" [level=2] [ref=e121]
+      - paragraph [ref=e122]: Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.
+      - generic [ref=e123]:
+        - heading "Use Coupon Code " [level=4] [ref=e126]:
+          - link "Use Coupon Code " [ref=e127] [cursor=pointer]:
+            - /url: "#collapse-coupon"
+            - text: Use Coupon Code
+            - generic [ref=e128]: 
+        - heading "Use Gift Certificate " [level=4] [ref=e131]:
+          - link "Use Gift Certificate " [ref=e132] [cursor=pointer]:
+            - /url: "#collapse-voucher"
+            - text: Use Gift Certificate
+            - generic [ref=e133]: 
+      - table [ref=e136]:
+        - rowgroup [ref=e137]:
+          - 'row "Sub-Total: $18,500.00" [ref=e138]':
+            - cell "Sub-Total:" [ref=e139]:
+              - strong [ref=e140]: "Sub-Total:"
+            - cell "$18,500.00" [ref=e141]
+          - 'row "Total: $18,500.00" [ref=e142]':
+            - cell "Total:" [ref=e143]:
+              - strong [ref=e144]: "Total:"
+            - cell "$18,500.00" [ref=e145]
+      - generic [ref=e146]:
+        - link "Continue Shopping" [ref=e148] [cursor=pointer]:
+          - /url: https://naveenautomationlabs.com/opencart/index.php?route=common/home
+        - link "Checkout" [ref=e150] [cursor=pointer]:
+          - /url: https://naveenautomationlabs.com/opencart/index.php?route=checkout/checkout
+  - contentinfo [ref=e151]:
+    - generic [ref=e152]:
+      - generic [ref=e153]:
+        - generic [ref=e154]:
+          - heading "Information" [level=5] [ref=e155]
+          - list [ref=e156]:
+            - listitem [ref=e157]:
+              - link "About Us" [ref=e158] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=information/information&information_id=4
+            - listitem [ref=e159]:
+              - link "Delivery Information" [ref=e160] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=information/information&information_id=6
+            - listitem [ref=e161]:
+              - link "Privacy Policy" [ref=e162] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=information/information&information_id=3
+            - listitem [ref=e163]:
+              - link "Terms & Conditions" [ref=e164] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=information/information&information_id=5
+        - generic [ref=e165]:
+          - heading "Customer Service" [level=5] [ref=e166]
+          - list [ref=e167]:
+            - listitem [ref=e168]:
+              - link "Contact Us" [ref=e169] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=information/contact
+            - listitem [ref=e170]:
+              - link "Returns" [ref=e171] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=account/return/add
+            - listitem [ref=e172]:
+              - link "Site Map" [ref=e173] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=information/sitemap
+        - generic [ref=e174]:
+          - heading "Extras" [level=5] [ref=e175]
+          - list [ref=e176]:
+            - listitem [ref=e177]:
+              - link "Brands" [ref=e178] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/manufacturer
+            - listitem [ref=e179]:
+              - link "Gift Certificates" [ref=e180] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=account/voucher
+            - listitem [ref=e181]:
+              - link "Affiliate" [ref=e182] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=affiliate/login
+            - listitem [ref=e183]:
+              - link "Specials" [ref=e184] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=product/special
+        - generic [ref=e185]:
+          - heading "My Account" [level=5] [ref=e186]
+          - list [ref=e187]:
+            - listitem [ref=e188]:
+              - link "My Account" [ref=e189] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=account/account
+            - listitem [ref=e190]:
+              - link "Order History" [ref=e191] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=account/order
+            - listitem [ref=e192]:
+              - link "Wish List" [ref=e193] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=account/wishlist
+            - listitem [ref=e194]:
+              - link "Newsletter" [ref=e195] [cursor=pointer]:
+                - /url: https://naveenautomationlabs.com/opencart/index.php?route=account/newsletter
+      - separator [ref=e196]
+      - paragraph [ref=e197]:
+        - text: Powered By
+        - link "OpenCart" [ref=e198] [cursor=pointer]:
+          - /url: http://www.opencart.com
+        - text: naveenopencart © 2025
+```

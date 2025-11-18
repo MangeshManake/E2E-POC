@@ -1,3 +1,0 @@
-Test: Email Without @ Symbol
-  Should Fail: true
-  Errors Found: 0

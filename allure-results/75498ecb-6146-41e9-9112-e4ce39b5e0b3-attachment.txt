@@ -1,0 +1,2 @@
+Case: Empty City -> Errors: none; Alert: none
+⚠ Empty City: no validation shown (site accepted)

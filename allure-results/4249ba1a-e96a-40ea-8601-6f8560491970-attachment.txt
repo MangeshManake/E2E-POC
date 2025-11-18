@@ -1,0 +1,166 @@
+selectUseNewAddress failed locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByRole('radio', { name: /I want to use a new address/i })
+
+    at CheckoutAddressPage.selectUseNewAddress (D:\Automation\E2E-POC\pages\CheckoutAddressPage.ts:42:42)
+    at D:\Automation\E2E-POC\tests\CheckoutAddressNegative.spec.ts:74:38 {
+  [Symbol(step)]: {
+    location: {
+      file: 'D:\\Automation\\E2E-POC\\pages\\CheckoutAddressPage.ts',
+      line: 42,
+      column: 42,
+      function: 'CheckoutAddressPage.selectUseNewAddress'
+    },
+    category: 'pw:api',
+    title: "Click getByRole('radio', { name: /I want to use a new address/i })",
+    apiName: 'locator.click',
+    params: {
+      selector: 'internal:role=radio[name=/I want to use a new address/i]',
+      strict: true,
+      timeout: 0
+    },
+    group: undefined,
+    stepId: 'pw:api@43',
+    boxedStack: undefined,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'pw:api@43',
+      _title: "Click getByRole('radio', { name: /I want to use a new address/i })",
+      _parentStep: undefined,
+      skip: [Function (anonymous)]
+    },
+    complete: [Function: complete],
+    endWallTime: 1763112486008,
+    error: {
+      message: 'Error: locator.click: Test timeout of 30000ms exceeded.\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for getByRole('radio', { name: /I want to use a new address/i })\x1B[22m\n",
+      stack: 'Error: locator.click: Test timeout of 30000ms exceeded.\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for getByRole('radio', { name: /I want to use a new address/i })\x1B[22m\n" +
+        '\n' +
+        '    at CheckoutAddressPage.selectUseNewAddress (D:\\Automation\\E2E-POC\\pages\\CheckoutAddressPage.ts:42:42)\n' +
+        '    at D:\\Automation\\E2E-POC\\tests\\CheckoutAddressNegative.spec.ts:74:38',
+      cause: undefined
+    }
+  }
+}
+Error filling address fields: locator.fill: Target page, context or browser has been closed
+    at CheckoutAddressPage.setFirstName (D:\Automation\E2E-POC\pages\CheckoutAddressPage.ts:47:33)
+    at D:\Automation\E2E-POC\tests\CheckoutAddressNegative.spec.ts:78:36 {
+  [Symbol(step)]: {
+    location: {
+      file: 'D:\\Automation\\E2E-POC\\pages\\CheckoutAddressPage.ts',
+      line: 47,
+      column: 33,
+      function: 'CheckoutAddressPage.setFirstName'
+    },
+    category: 'pw:api',
+    title: `Fill "John" getByRole('textbox', { name: /First Name/i })`,
+    apiName: 'locator.fill',
+    params: {
+      selector: 'internal:role=textbox[name=/First Name/i]',
+      value: 'John',
+      strict: true,
+      timeout: 0
+    },
+    group: undefined,
+    stepId: 'pw:api@48',
+    boxedStack: undefined,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'pw:api@48',
+      _title: `Fill "John" getByRole('textbox', { name: /First Name/i })`,
+      _parentStep: [TestStepInfoImpl],
+      skip: [Function (anonymous)]
+    },
+    complete: [Function: complete],
+    endWallTime: 1763112486015,
+    error: {
+      message: 'Error: locator.fill: Target page, context or browser has been closed',
+      stack: 'Error: locator.fill: Target page, context or browser has been closed\n' +
+        '    at CheckoutAddressPage.setFirstName (D:\\Automation\\E2E-POC\\pages\\CheckoutAddressPage.ts:47:33)\n' +
+        '    at D:\\Automation\\E2E-POC\\tests\\CheckoutAddressNegative.spec.ts:78:36',
+      cause: undefined
+    }
+  }
+}
+clickContinue failed locator.click: Target page, context or browser has been closed
+    at CheckoutAddressPage.clickContinue (D:\Automation\E2E-POC\pages\CheckoutAddressPage.ts:76:32)
+    at D:\Automation\E2E-POC\tests\CheckoutAddressNegative.spec.ts:89:38 {
+  [Symbol(step)]: {
+    location: {
+      file: 'D:\\Automation\\E2E-POC\\pages\\CheckoutAddressPage.ts',
+      line: 76,
+      column: 32,
+      function: 'CheckoutAddressPage.clickContinue'
+    },
+    category: 'pw:api',
+    title: "Click locator('#button-payment-address')",
+    apiName: 'locator.click',
+    params: { selector: '#button-payment-address', strict: true, timeout: 0 },
+    group: undefined,
+    stepId: 'pw:api@49',
+    boxedStack: undefined,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'pw:api@49',
+      _title: "Click locator('#button-payment-address')",
+      _parentStep: [TestStepInfoImpl],
+      skip: [Function (anonymous)]
+    },
+    complete: [Function: complete],
+    endWallTime: 1763112486017,
+    error: {
+      message: 'Error: locator.click: Target page, context or browser has been closed',
+      stack: 'Error: locator.click: Target page, context or browser has been closed\n' +
+        '    at CheckoutAddressPage.clickContinue (D:\\Automation\\E2E-POC\\pages\\CheckoutAddressPage.ts:76:32)\n' +
+        '    at D:\\Automation\\E2E-POC\\tests\\CheckoutAddressNegative.spec.ts:89:38',
+      cause: undefined
+    }
+  }
+}
+Cart/checkout navigation failed, skipping case: page.waitForTimeout: Target page, context or browser has been closed
+    at D:\Automation\E2E-POC\tests\CheckoutAddressNegative.spec.ts:90:24 {
+  [Symbol(step)]: {
+    location: {
+      file: 'D:\\Automation\\E2E-POC\\tests\\CheckoutAddressNegative.spec.ts',
+      line: 90,
+      column: 24
+    },
+    category: 'pw:api',
+    title: 'Wait for timeout',
+    apiName: 'page.waitForTimeout',
+    params: { waitTimeout: 800 },
+    group: undefined,
+    stepId: 'pw:api@50',
+    boxedStack: undefined,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'pw:api@50',
+      _title: 'Wait for timeout',
+      _parentStep: [TestStepInfoImpl],
+      skip: [Function (anonymous)]
+    },
+    complete: [Function: complete],
+    endWallTime: 1763112486018,
+    error: {
+      message: 'Error: page.waitForTimeout: Target page, context or browser has been closed',
+      stack: 'Error: page.waitForTimeout: Target page, context or browser has been closed\n' +
+        '    at D:\\Automation\\E2E-POC\\tests\\CheckoutAddressNegative.spec.ts:90:24',
+      cause: undefined
+    }
+  }
+}

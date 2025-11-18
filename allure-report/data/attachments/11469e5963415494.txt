@@ -1,0 +1,5 @@
+Test: All Fields Empty
+  URL: https://naveenautomationlabs.com/opencart/index.php?route=account/register
+  Errors: 1 - Warning: You must agree to the Privacy Policy!
+  Confirmation: 
+  Note: No validation error displayed for 'All Fields Empty'. Site may accept this input.

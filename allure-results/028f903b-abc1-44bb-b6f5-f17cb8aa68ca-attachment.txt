@@ -1,3 +1,0 @@
-Test: Email - No Domain Extension
-  Should Fail: true
-  Errors Found: 0
